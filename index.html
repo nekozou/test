@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Global Air Pollution Data Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <style>
+        body {
+            background-image: url("bg.jpg");
+            background-size: cover;
+            padding: 50px;
+        }
+        #content {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 25px;
+        }
+        h1, h2, p {
+            text-align: center;
+        }        
+        .row {
+            display: flex;
+        }       
+        .column {
+            flex: 50%;
+        }
+        .left {
+            text-align: right;
+        }
+        .right {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <h1>Global Air Pollution Data Analysis</h1>
+
+    <h2>A Further Look Into Air Pollution Map</h2>
+    <div id="map"></div>
+    <p>Air pollution has become an issue of global concern, affecting both our environment and the health of the world's population. The alteration of the atmosphere by harmful chemicals has been linked to various respiratory and cardiovascular conditions. This dataset aims to provide insights into air quality metrics across various cities and countries.</p>
+
+    <h2>A Look into AQI Value of some countries</h2>
+    <div class="row">
+        <div class="column" id="scatter"></div>
+        <div class="column right">A noteworthy observation is the prominent positioning of India, which stands out as having the highest values on both axes.This prominence indicates that not only does India grapple with significant air pollution levels in general (as denoted by its overall AQI value), but the proportion of this pollution attributed to ozone is also considerably high. Ozone, a major component of smog, can cause or aggravate respiratory diseases and other health problems, emphasizing the gravity of this situation for India's public health.</div>
+    </div>
+  
+    <h2>Air Quality Index (AQI) by Country and Category</h2>
+    <div class="row">
+        <div class="column left">The chart offers a clear representation of the Air Quality Index (AQI) values for various countries. The width of each segment signifies the magnitude of the AQI value for that country. Countries with larger segments, like the dominant green one, have higher AQI values, suggesting more air pollution.It paints a comprehensive picture of global air pollution. Countries with significant segments and darker shades are areas of concern, indicating higher levels of pollution.</div>
+        <div class="column" id="pie"></div>
+    </div>
+
+    <h2>Ozone Air Quality Index (AQI) Values by City</h2>
+    <div id="bar"></div>
+    <p>Both China and India, two of the world's most populated and rapidly industrializing nations, showcase elevated Ozone AQI values, signaling higher concentrations of ground-level ozone, a primary component in urban smog.High ozone levels can have dire health implications, exacerbating respiratory issues and potentially increasing the incidence of cardiovascular problems.In contrast, countries like Australia and France depict significantly lower Ozone AQI values. These nations, while industrialized, have stringent environmental regulations and policies in place to mitigate air pollution.</p>
+</div>
+
+<script type="text/javascript">
+
+  var spec2 = "map.json";
+  vegaEmbed('#map', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec2 = "bar_chart.json";
+  vegaEmbed('#bar', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var spec2 = "pie_chart.json";
+  vegaEmbed('#pie', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec2 = "scatter_chart.json";
+  vegaEmbed('#scatter', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
+</body>
+</html>

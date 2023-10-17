@@ -1,0 +1,65 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Ozone Air Quality Index (AQI) Values by City",
+    "data": {
+      "url": "https://raw.githubusercontent.com/jyin0028/Fit3179/main/global%20air%20pollution%20dataset.csv"
+    },
+    "transform": [
+      {
+        "filter": {"selection": "country_dropdown"}
+      }
+    ],
+    "selection": {
+      "country_dropdown": {
+        "type": "single",
+        "fields": ["Country"],
+        "bind": {
+          "input": "select",
+          "options": [
+            "Australia",
+            "China",
+            "India",
+            "France",
+            "null"
+          ],
+          "name": "Select Country: "
+        },
+        "empty": "all"
+      }
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "City",
+        "type": "ordinal",
+        "title": "City"
+      },
+      "y": {
+        "field": "Ozone AQI Value",
+        "type": "quantitative",
+        "title": "Ozone AQI Value"
+      },
+      "tooltip": [
+        {"field": "City", "type": "ordinal"},
+        {"field": "Ozone AQI Value", "type": "quantitative"},
+        {"field": "Ozone AQI Category", "type": "ordinal"}
+      ],
+      "color": {
+        "field": "Ozone AQI Category",
+        "type": "nominal",
+        "title": "Ozone AQI Category",
+        "legend": {
+          "title": "Ozone AQI Category"
+        }
+      }
+    },
+    "config": {
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 16
+      },
+      "title": {
+        "fontSize": 24
+      }
+    }
+  }
